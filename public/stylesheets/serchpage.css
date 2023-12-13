@@ -1,0 +1,49 @@
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2; 
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff; 
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+}
+
+.movie-details {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out; 
+}
+
+.movie-details:hover {
+    transform: scale(1.05); 
+}
+
+.movie-details img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.movie-details p {
+    margin: 10px 0;
+}
+
+.movie-details a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+

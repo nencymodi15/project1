@@ -1,0 +1,38 @@
+<!-- views/profile.hbs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ pageTitle }}</title>
+</head>
+<body>
+  <h2>{{ pageTitle }}</h2>
+
+  <!-- Display user data here -->
+  <p>Name: {{ user.name }}</p>
+  <p>Email: {{ user.email }}</p>
+
+  <!-- Display errors for profile and password change -->
+  {{#if errors}}
+    <ul>
+      {{#each errors}}
+        <li>{{ this.msg }}</li>
+      {{/each}}
+    </ul>
+  {{/if}}
+
+  <!-- Display errors for password change -->
+  {{#if passwordChangeErrors}}
+    <ul>
+      {{#each passwordChangeErrors}}
+        <li>{{ this.msg }}</li>
+      {{/each}}
+    </ul>
+  {{/if}}
+
+  <a href="/users/profile/edit">Edit Profile</a>
+  <a href="/users/profile/change-password">Change Password</a>
+</body>
+</html>

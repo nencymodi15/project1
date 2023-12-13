@@ -1,0 +1,141 @@
+<!-- movies.hbs -->
+
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to bottom, #000000, #333333); /* IMDb-like gradient background */
+        color: #fff; /* White text color */
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        background-color: #000; /* Dark background color */
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow effect */
+    }
+
+    h2 {
+        color: #fff; /* White text color */
+        text-align: center;
+    }
+
+    .movie-details {
+        border: 1px solid #ddd;
+        padding: 20px;
+        margin-bottom: 20px;
+        transition: transform 0.3s ease-in-out; /* Animation for a smooth transform */
+        background-color: #333; /* Darker background color for each movie details section */
+    }
+
+    .movie-details:hover {
+        transform: scale(1.05); /* Enlarge the movie details on hover */
+    }
+
+    .movie-details img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .movie-details p {
+        margin: 10px 0;
+    }
+
+    .movie-details a {
+        color: #007bff;
+        text-decoration: none;
+    }
+</style>
+
+<h2>Movie Search Results</h2>
+
+{{#each movies}}
+    <div class="movie-details">
+        {{#if this.title}}
+            <h3>Title: {{this.title}}</h3>
+        {{/if}}
+
+        {{#if this.poster}}
+            <img src="{{this.poster}}" alt="{{this.title}} Poster" style="max-width: 100%; height: auto;">
+        {{/if}}
+
+        {{#if this.plot}}
+            <p> Plot: {{this.plot}}</p>
+        {{/if}}
+
+        {{#if this.genres}}
+            <p>Genres: {{#each this.genres}} {{this}} {{#unless @last}}, {{/unless}} {{/each}}</p>
+        {{/if}}
+
+        {{#if this.runtime}}
+            <p>Runtime: {{this.runtime}}</p>
+        {{/if}}
+
+        {{#if this.cast}}
+            <p>Cast: {{#each this.cast}} {{this}} {{#unless @last}}, {{/unless}} {{/each}}</p>
+        {{/if}}
+
+        {{#if this.fullplot}}
+            <p> Full Plot: {{this.fullplot}}</p>
+        {{/if}}
+
+        {{#if this.languages}}
+            <p>Languages: {{#each this.languages}} {{this}} {{#unless @last}}, {{/unless}} {{/each}}</p>
+        {{/if}}
+
+        {{#if this.released}}
+            <p>Released: {{formatDate this.released 'MMMM D, YYYY'}}</p>
+        {{/if}}
+
+        {{#if this.directors}}
+            <p>Directors: {{#each this.directors}} {{this}} {{#unless @last}}, {{/unless}} {{/each}}</p>
+        {{/if}}
+
+        {{#if this.writers}}
+            <p>Writers: {{#each this.writers}} {{this}} {{#unless @last}}, {{/unless}} {{/each}}</p>
+        {{/if}}
+
+        {{#if this.awards}}
+            <p> Awards: Wins {{this.awards.wins}}, Nominations: {{this.awards.nominations}}, Text: {{this.awards.text}}</p>
+        {{/if}}
+
+        {{#if this.lastupdated}}
+            <p>Last Updated: {{formatDate this.lastupdated 'MMMM D, YYYY h:mm:ss A'}}</p>
+        {{/if}}
+
+        {{#if this.year}}
+            <p> Year: {{this.year}}</p>
+        {{/if}}
+
+        {{#if this.imdb}}
+            <p> IMDb: Rating {{this.imdb.rating}}, Votes: {{this.imdb.votes}}, ID: {{this.imdb.id}}</p>
+        {{/if}}
+
+        {{#if this.countries}}
+            <p>Countries: {{#each this.countries}} {{this}} {{#unless @last}}, {{/unless}} {{/each}}</p>
+        {{/if}}
+
+        {{#if this.type}}
+            <p> Type: {{this.type}}</p>
+        {{/if}}
+
+        {{#if this.tomatoes}}
+            <p> Tomatoes:</p>
+
+            {{#if this.tomatoes.viewer}}
+               {{/if}}
+
+                {{#if this.tomatoes.lastUpdated}}
+                    <p>Last Updated: {{formatDate this.tomatoes.lastUpdated 'MMMM D, YYYY h:mm:ss A'}}</p>
+                {{/if}}
+
+        {{/if}}
+
+        {{#if this.num_mflix_comments}}
+            <p> Number of Comments: {{this.num_mflix_comments}}</p>
+        {{/if}}
+    </div>
+{{/each}}

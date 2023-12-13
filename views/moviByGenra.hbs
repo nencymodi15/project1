@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Rated Movies</title>
+</head>
+<body>
+    <h1>Top Rated Movies</h1>
+
+    <form action="/movies/top-rated-movies" method="get">
+        <label for="genre">Select Genre:</label>
+        <select name="genre" id="genre">
+            {{#each genres}}
+                <option value="{{this}}">{{this}}</option>
+            {{/each}}
+        </select>
+
+        <button type="submit">Get Top Rated Movies</button>
+    </form>
+    <form action="/movies/top-rated-movies" method="get">
+    <label for="genre">Select Genre:</label>
+    <select name="genre" id="genre">
+        {{#each genres}}
+            <option value="{{this}}">{{this}}</option>
+        {{/each}}
+    </select>
+
+    <label for="language">Select Language:</label>
+    <select name="language" id="language">
+        {{#each languages}}
+            <option value="{{this}}">{{this}}</option>
+        {{/each}}
+    </select>
+
+    <button type="submit">Get Movies</button>
+</form>
+</body>
+</html>
